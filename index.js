@@ -62,7 +62,7 @@ function loadData(callback) {
             }
             if (moves[i].name == 'B') {
                 const m = move(moves[i].arg[0], SIZE);
-                if (!WINNER || (WINNER == moves[i].name)) {
+                if (WINNER == moves[i].name) {
                     let setups = [];
                     _.each([0, 1, 2, 3, 4, 5, 6, 7], function(rotate) {
                         const s = go.GetFen(board, SIZE, true, rotate);
@@ -75,7 +75,7 @@ function loadData(callback) {
             }
             if (moves[i].name == 'W') {
                 const m = move(moves[i].arg[0], SIZE);
-                if (!WINNER || (WINNER == moves[i].name)) {
+                if (WINNER == moves[i].name) {
                     let setups = [];
                     _.each([0, 1, 2, 3, 4, 5, 6, 7], function(rotate) {
                         const s = go.GetFen(board, SIZE, false, rotate);
