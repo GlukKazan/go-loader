@@ -25,7 +25,7 @@ function move(s, SIZE) {
 }
 
 function loadData(callback) {
-    for (let ix = 0; ix < files.length; files.length++) {
+    for (let ix = 0; ix < files.length; ix++) {
 //      console.log('Loaded: ' + files[ix]);
         const d = fs.readFileSync(files[ix]);
         const data = d.toString();
@@ -62,7 +62,7 @@ function loadData(callback) {
                     const m = move(moves[i].arg[0], SIZE);
                     if (WINNER == moves[i].name) {
                         let setups = [];
-                        _.each([0, 1, 2, 3, 4, 5, 6, 7], function(rotate) {
+                        _.each([0/*, 1, 2, 3, 4, 5, 6, 7*/], function(rotate) {
                             const s = go.GetFen(board, SIZE, true, rotate);
                             if (_.indexOf(setups, s) >= 0) return;
                             setups.push(s);
@@ -75,7 +75,7 @@ function loadData(callback) {
                     const m = move(moves[i].arg[0], SIZE);
                     if (WINNER == moves[i].name) {
                         let setups = [];
-                        _.each([0, 1, 2, 3, 4, 5, 6, 7], function(rotate) {
+                        _.each([0/*, 1, 2, 3, 4, 5, 6, 7*/], function(rotate) {
                             const s = go.GetFen(board, SIZE, false, rotate);
                             if (_.indexOf(setups, s) >= 0) return;
                             setups.push(s);
